@@ -10,13 +10,13 @@ public class Main {
     private static final Logger log = Logger.getLogger(Main.class);
     private static final int PRIORITY_FOR_SENDER = 1;
     private static final int PRIORITY_FOR_RECEIVER = 3;
-    private static final String BOT_ADMIN = "358377512";
+    private static final String BOT_ADMIN = "adminadminadmin";
     //private Bot bot;
     //private String chatId;
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
-        Bot friend_bot = new Bot("ImFriendBot", "1092610100:AAFp3x4o6jAXbq5V88NysRgxfhUyCoMfZNA");
+        Bot friend_bot = new Bot("ImFriendBot", "0000000:tokentokentoken");
 
         MessageReceiver messageReceiver = new MessageReceiver(friend_bot);
         MessageSender messageSender = new MessageSender(friend_bot);
