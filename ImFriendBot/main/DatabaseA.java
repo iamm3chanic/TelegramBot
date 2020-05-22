@@ -1,9 +1,9 @@
 public class DatabaseA {
-    static String[] helloArray = new String[10];
-    static String[] motivArray = new String[10];
-    static String[] FilmArray = new String[10];
-    static String[] musicArray = new String[10];
-    static String[] picArray = new String[10];
+    static String[] helloArray = new String[20];
+    static String[] motivArray = new String[20];
+    static String[] FilmArray = new String[100];
+    static String[] musicArray = new String[100];
+    static String[] picArray = new String[20];
 
     public static void setHelloArray(String[] helloArray) {
         DatabaseA.helloArray = helloArray;
