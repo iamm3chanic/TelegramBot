@@ -22,7 +22,6 @@ public class Main {
         MessageSender messageSender = new MessageSender(friend_bot);
 
         friend_bot.botConnect();
-       // SendMessage sendMessage = new SendMessage();
 
         Thread receiver = new Thread(messageReceiver);
         receiver.setDaemon(true);
@@ -37,73 +36,7 @@ public class Main {
         sender.start();
 
         sendStartReport(friend_bot);
-        //setButtons();
     }
-
-/*
-    /**
-     * Метод для приема сообщений.
-     * @param update Содержит сообщение от пользователя.
-     *
-    public void onUpdateReceived(Update update) {
-        String message = update.getMessage().getText();
-        sendMsg(update.getMessage().getChatId().toString(), message);
-    }
-
-    /**
-     * Метод для настройки сообщения и его отправки.
-     * param chatId id чата
-     * param s Строка, которую необходимот отправить в качестве сообщения.
-     *
-    public synchronized void sendMsg(String chatId, String s) {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.enableMarkdown(true);
-        sendMessage.setChatId(chatId);
-        sendMessage.setText(s);
-
-        sendMessage(sendMessage);
-
-    }*/
-    /*private synchronized void setButtons() {
-        SendMessage sendMessage = null;
-        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
-        sendMessage.setReplyMarkup(replyKeyboardMarkup);
-        replyKeyboardMarkup.setSelective(true);
-        replyKeyboardMarkup.setResizeKeyboard(true);
-        replyKeyboardMarkup.setOneTimeKeyboard(false);
-
-        // Создаем список строк клавиатуры
-        ArrayList<KeyboardRow> keyboard = new ArrayList<>();
-
-        // Первая строчка клавиатуры
-        KeyboardRow keyboardFirstRow = new KeyboardRow();
-        // Добавляем
-        // кнопки в первую строчку клавиатуры
-        keyboardFirstRow.add(new KeyboardButton("Музыка"));
-        keyboardFirstRow.add(new KeyboardButton("Фильмы"));
-        // Вторая строчка клавиатуры
-        KeyboardRow keyboardSecondRow = new KeyboardRow();
-        // Добавляем кнопки во вторую строчку клавиатуры
-        keyboardSecondRow.add(new KeyboardButton("Помощь"));
-
-        // Добавляем все строчки клавиатуры в список
-        keyboard.add(keyboardFirstRow);
-        keyboard.add(keyboardSecondRow);
-        // и устанваливаем этот список нашей клавиатуре
-        replyKeyboardMarkup.setKeyboard(keyboard);
-    }*/
-    /*public String getMessage(String message) {
-        if (message.equals("Привет") || message.equals("Меню")) {
-            bot.sendQueue.add(SystemHandler.getMessageHelp(chatId));
-            return "";
-        }
-
-        if (message.equals("Спасибо")) {
-            return "Рад помочь!";
-        }
-
-        return message;
-    }*/
 
     private static void sendStartReport(Bot bot) {
         SendMessage sendMessage = new SendMessage();
