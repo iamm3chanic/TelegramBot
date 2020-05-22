@@ -41,12 +41,10 @@ public class SystemHandler extends AbstractHandler {
                 DatabaseA.setMotivArray(DatabaseA.motivArray);
                 return DatabaseA.motivArray[k2];
             case MUSIC:
-                return "Функция пока недоступна :(";
-                /*
                 Random random3 = new Random();
                 int k3 = random3.nextInt(25);
                 DatabaseA.setMusicArray(DatabaseA.musicArray);
-                return DatabaseA.musicArray[k3];*/
+                return DatabaseA.musicArray[k3];
             case PIC:
                 Random random4 = new Random();
                 int k4 = random4.nextInt(10);
