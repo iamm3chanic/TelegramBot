@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>tlgbot1</artifactId>
+    <artifactId>tlgbot2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -26,7 +26,7 @@
                     <programs>
                         <program>
                             <mainClass>Main</mainClass>
-                            <name>tlgbot1</name>
+                            <name>tlgbot2</name>
                         </program>
                     </programs>
                 </configuration>
