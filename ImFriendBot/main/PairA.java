@@ -27,13 +27,6 @@ public class PairA implements Serializable {
     }
 
     @Override
-    /*public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PairA pairA = (PairA) o;
-        return Objects.equals(key, pairA.key) &&
-                Objects.equals(value, pairA.value);
-    }*/
     public boolean equals(Object o) {
         if (this == o) {
             return true;

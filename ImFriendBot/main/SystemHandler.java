@@ -8,6 +8,7 @@ import org.telegram.telegrambots.api.objects.Update;
 import java.util.Random;
 
 public class SystemHandler extends AbstractHandler {
+
     private static final Logger log = Logger.getLogger(SystemHandler.class);
     private static final String END_LINE = "\n";
     public SystemHandler(Bot bot) {
@@ -15,11 +16,14 @@ public class SystemHandler extends AbstractHandler {
     }
     @Override
     public String operate(String chatId, ParsedCommand parsedCommand, Update update) {
+        //SendMessage sendMessage = new SendMessage();
         Command command = parsedCommand.getCommand();
 
         switch (command) {
             case START:
                 bot.sendQueue.add(getMessageStart(chatId));
+                //SendMessage sendMessage = new SendMessage();
+                //Keyboard.setButtons(sendMessage, chatId);
                 break;
             case HELP:
                 bot.sendQueue.add(getMessageHelp(chatId));
@@ -37,20 +41,23 @@ public class SystemHandler extends AbstractHandler {
                 return DatabaseA.helloArray[k1];
             case MOTIV:
                 Random random2 = new Random();
-                int k2=random2.nextInt(4);
+                int k2=random2.nextInt(10);
                 DatabaseA.setMotivArray(DatabaseA.motivArray);
                 return DatabaseA.motivArray[k2];
-            case MUSIC:
+           /* case MUSIC:
                 Random random3 = new Random();
                 int k3 = random3.nextInt(25);
                 DatabaseA.setMusicArray(DatabaseA.musicArray);
-                return DatabaseA.musicArray[k3];
+                return DatabaseA.musicArray[k3];*/
+            case MUSIC:
+                bot.sendQueue.add(getMessageMusic(chatId));
+                break;
             case PIC:
                 Random random4 = new Random();
-                int k4 = random4.nextInt(10);
+                int k4 = random4.nextInt(20);
                 DatabaseA.setPicArray(DatabaseA.picArray);
                 return DatabaseA.picArray[k4];
-            default: return "Такой команды у меня еще нет...";
+            default: return "";
         }
         return "";
     }
@@ -85,6 +92,18 @@ public class SystemHandler extends AbstractHandler {
         text.append("В последующих релизах я буду уметь советовать фильмы.").append(END_LINE);
         text.append("Все мои команды можно увидеть, набрав [/help](/help)");
         sendMessage.setText(text.toString());
+        return sendMessage;
+    }
+
+    protected static SendMessage getMessageMusic(String chatID) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatID);
+        sendMessage.enableMarkdown(true);
+        Random random3 = new Random();
+        int k3 = random3.nextInt(25);
+        DatabaseA.setMusicArray(DatabaseA.musicArray);
+        String text = DatabaseA.musicArray[k3];
+        sendMessage.setText(text);
         return sendMessage;
     }
 }

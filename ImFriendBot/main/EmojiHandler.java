@@ -17,9 +17,13 @@ public class EmojiHandler extends AbstractHandler {
     @Override
     public String operate(String chatId, ParsedCommand parsedCommand, Update update) {
         String text = parsedCommand.getText();
+        if ("".equals(text)) {
+            return "Напиши смайлики сразу после команды. Например так:\n" +
+                    "/emoji \uD83D\uDE3B";
+        }
         StringBuilder result = new StringBuilder();
         Set<String> emojisInTextUnique = new HashSet<>(EmojiParser.extractEmojis(text));
-        if (emojisInTextUnique.size() > 0) result.append("Parsed emojies from message:").append("\n");
+        if (emojisInTextUnique.size() > 0) result.append("Распознал смайлики из сообщения:").append("\n");
         for (String emojiUnicode : emojisInTextUnique) {
             Emoji byUnicode = EmojiManager.getByUnicode(emojiUnicode);
             log.debug(byUnicode.toString());

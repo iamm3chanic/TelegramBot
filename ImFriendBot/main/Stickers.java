@@ -22,4 +22,5 @@ public enum Stickers {
         sendSticker.setSticker(stickerId);
         return sendSticker;
     }
+
 }

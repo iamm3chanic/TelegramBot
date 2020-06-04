@@ -24,6 +24,7 @@ public class Notify implements Runnable {
         try {
             Thread.sleep(delayInMillisec);
             bot.sendQueue.add(getSecondSticker());
+            bot.sendQueue.add(getSecondMessage());
         } catch (InterruptedException e) {
             log.error(e.getMessage(), e);
         }
@@ -31,7 +32,7 @@ public class Notify implements Runnable {
     }
 
     private SendMessage getFirstMessage() {
-        return new SendMessage(chatID, "Я отправлю уведомление через " + delayInMillisec / MILLISEC_IN_SEC + " секунд");
+        return new SendMessage(chatID, "Я отправлю уведомление через " + delayInMillisec / MILLISEC_IN_SEC + " сек");
     }
 
     private SendSticker getSecondSticker() {
@@ -42,6 +43,6 @@ public class Notify implements Runnable {
     }
 
     private SendMessage getSecondMessage() {
-        return new SendMessage(chatID, "This is notify message. Thanks for using :)");
+        return new SendMessage(chatID, "Это напоминание. Спасибо за использование :)");
     }
 }

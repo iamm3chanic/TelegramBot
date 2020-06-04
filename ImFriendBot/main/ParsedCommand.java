@@ -11,7 +11,7 @@ public class ParsedCommand {
     ParsedCommand(Command command, String text) {
        super();
     }
-    ParsedCommand() {
+    ParsedCommand(MessageSender.MessageType sticker, String fileId) {
         super();
     }
 

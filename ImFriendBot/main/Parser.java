@@ -5,9 +5,8 @@ import java.util.List;
 
 public class Parser {
     private static final Logger log = Logger.getLogger(Parser.class);
-    private final String PREFIX_FOR_COMMAND = "/";
     private final String DELIMITER_COMMAND_BOTNAME = "@";
-    private String botName;
+    private final String botName;
 
     public Parser(String botName) {
         this.botName = botName;
@@ -76,6 +75,7 @@ public class Parser {
     }
 
     private boolean isCommand(String text) {
+        String PREFIX_FOR_COMMAND = "/";
         return text.startsWith(PREFIX_FOR_COMMAND);
     }
 }
