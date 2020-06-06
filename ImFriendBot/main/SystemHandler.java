@@ -99,10 +99,58 @@ public class SystemHandler extends AbstractHandler {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatID);
         sendMessage.enableMarkdown(true);
-        Random random3 = new Random();
-        int k3 = random3.nextInt(25);
+        Random random = new Random();
+        int k = random.nextInt(25);
         DatabaseA.setMusicArray(DatabaseA.musicArray);
-        String text = DatabaseA.musicArray[k3];
+        String text = DatabaseA.musicArray[k];
+        sendMessage.setText(text);
+        return sendMessage;
+    }
+
+    protected static SendMessage getMessageActionFilm(String chatID) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatID);
+        sendMessage.enableMarkdown(true);
+        Random random = new Random();
+        int k = random.nextInt(15);
+        DatabaseA.setActionFilmArray(DatabaseA.actionFilmArray);
+        String text = DatabaseA.actionFilmArray[k];
+        sendMessage.setText(text);
+        return sendMessage;
+    }
+
+    protected static SendMessage getMessageHorrorFilm(String chatID) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatID);
+        sendMessage.enableMarkdown(true);
+        Random random = new Random();
+        int k = random.nextInt(15);
+        DatabaseA.setHorrorFilmArray(DatabaseA.horrorFilmArray);
+        String text = DatabaseA.horrorFilmArray[k];
+        sendMessage.setText(text);
+        return sendMessage;
+    }
+
+    protected static SendMessage getMessageComedyFilm(String chatID) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatID);
+        sendMessage.enableMarkdown(true);
+        Random random = new Random();
+        int k = random.nextInt(15);
+        DatabaseA.setComedyFilmArray(DatabaseA.comedyFilmArray);
+        String text = DatabaseA.comedyFilmArray[k];
+        sendMessage.setText(text);
+        return sendMessage;
+    }
+
+    protected static SendMessage getMessageRomanFilm(String chatID) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatID);
+        sendMessage.enableMarkdown(true);
+        Random random = new Random();
+        int k = random.nextInt(15);
+        DatabaseA.setRomanFilmArray(DatabaseA.romanFilmArray);
+        String text = DatabaseA.romanFilmArray[k];
         sendMessage.setText(text);
         return sendMessage;
     }

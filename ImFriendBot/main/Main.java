@@ -10,14 +10,14 @@ public class Main {
    // private static final Logger log = Logger.getLogger(Main.class);
     private static final int PRIORITY_FOR_SENDER = 1;
     private static final int PRIORITY_FOR_RECEIVER = 3;
-    private static final String BOT_ADMIN = "12345";
+    private static final String BOT_ADMIN = "358377512";
     public static Bot bot;
     //private Bot bot;
     //private String chatId;
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
-        Bot friend_bot = new Bot("ImFriendBot", "tokentokentoken");
+        Bot friend_bot = new Bot("ImFriendBot", "1092610100:AAFp3x4o6jAXbq5V88NysRgxfhUyCoMfZNA");
 
         MessageReceiver messageReceiver = new MessageReceiver(friend_bot);
         MessageSender messageSender = new MessageSender(friend_bot);
@@ -49,7 +49,7 @@ public class Main {
     private static void sendStartReport(Bot bot) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(BOT_ADMIN);
-        sendMessage.setText("Деплой произошел успешно! Version normal2.");
+        sendMessage.setText("Деплой произошел успешно! Version normal5.");
         bot.sendQueue.add(sendMessage);
     }
 }

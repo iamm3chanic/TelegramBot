@@ -12,24 +12,26 @@ public class Keyboard {
     public static void setBot(Bot bot) {
         Keyboard.bot = bot;
     }
+
+    static ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
     //private static String s;
     //private static String chatId;
  //Bot bot;
  //String s;
  //SendMessage message = new SendMessage();
 
- /**
+ /*
  * Метод для настройки сообщения и его отправки.
  * @param chatId id чата
  * @param s Строка, которую необходимот отправить в качестве сообщения.
- */
+ *
 public static synchronized void sendMsg(String chatId, String s) {
     SendMessage sendMessage = new SendMessage();
     sendMessage.enableMarkdown(true);
     sendMessage.setChatId(chatId);
     sendMessage.setText(s);
     bot.sendMsg(chatId,s);
-}
+}*/
 
     public static synchronized void setButtons(SendMessage sendMessage, String chatId) {
         //SendMessage sendMessage = new SendMessage();
@@ -59,20 +61,45 @@ public static synchronized void sendMsg(String chatId, String s) {
         // и устанваливаем этот список нашей клавиатуре
         replyKeyboardMarkup.setKeyboard(keyboard);
 
-        Update update = new Update();
-        if (update.getMessage().getText().equals("Привет") || update.getMessage().getText().equals("Помощь")) {
-            bot.sendQueue.add(SystemHandler.getMessageHelp(chatId));
-            //return "Привет!";
-        }
-        if (update.getMessage().getText().equals("Спасибо")) {
-        String s = "Рад помочь!";
-        sendMsg(chatId,s);
-        //return s;
-        }
-        if (update.getMessage().getText().equals("Музыка")) {
-            bot.sendQueue.add(SystemHandler.getMessageMusic(chatId));
-          //  return "";
-        }
-        //return "";
+    }
+    public static synchronized void setButtonsLocal(SendMessage sendMessage, String chatId) {
+        //SendMessage sendMessage = new SendMessage();
+        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+        sendMessage.setReplyMarkup(replyKeyboardMarkup);
+        replyKeyboardMarkup.setSelective(true);
+        replyKeyboardMarkup.setResizeKeyboard(true);
+        replyKeyboardMarkup.setOneTimeKeyboard(true);
+
+        // Создаем список строк клавиатуры
+        ArrayList<KeyboardRow> keyboard = new ArrayList<>();
+
+        // Первая строчка клавиатуры
+        KeyboardRow keyboardFirstRow = new KeyboardRow();
+       // keyboardFirstRow.clear();
+
+        keyboardFirstRow.add(new KeyboardButton("Боевик"));
+        keyboardFirstRow.add(new KeyboardButton("Комедия"));
+
+        KeyboardRow keyboardSecondRow = new KeyboardRow();
+       // keyboardSecondRow.clear();
+        keyboardSecondRow.add(new KeyboardButton("Ужасы"));
+        keyboardSecondRow.add(new KeyboardButton("Романтика"));
+
+        // Добавляем все строчки клавиатуры в список
+        keyboard.add(keyboardFirstRow);
+        keyboard.add(keyboardSecondRow);
+        // и устанваливаем этот список нашей клавиатуре
+        replyKeyboardMarkup.setKeyboard(keyboard);
+    }
+
+    public static void clear(ReplyKeyboardMarkup replyKeyboardMarkup) {
+        // Создаем список строк клавиатуры
+        ArrayList<KeyboardRow> keyboard = new ArrayList<>();
+
+        // Первая строчка клавиатуры
+        for(KeyboardRow keyboardRow : keyboard)
+        keyboardRow.clear();
+       /* KeyboardRow keyboardSecondRow = new KeyboardRow();
+         keyboardSecondRow.clear();*/
     }
 }

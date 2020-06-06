@@ -1,4 +1,5 @@
 //import javafx.scene.input.KeyEvent;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,7 +42,35 @@ public class Bot extends TelegramLongPollingBot {
         receiveQueue.add(update);
         String message = update.getMessage().getText();
         sendMsg(update.getMessage().getChatId().toString(), message);
+       /* if(update.hasCallbackQuery()) {
+            AnswerThread answerThread = new AnswerCallbackThread(update.getCallbackQuery());
+        }*/
     }
+
+    /*private void setInline() {
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        List<InlineKeyboardButton> buttons1 = new ArrayList<>();
+        List<InlineKeyboardButton> buttons2 = new ArrayList<>();
+        buttons1.add(new InlineKeyboardButton().setText("Боевик").setCallbackData(String.valueOf(1)));
+        buttons2.add(new InlineKeyboardButton().setText("Комедия").setCallbackData(String.valueOf(2)));
+        buttons.add(buttons1);
+        buttons.add(buttons2);
+
+        InlineKeyboardMarkup markupKeyboard = new InlineKeyboardMarkup();
+        markupKeyboard.setKeyboard(buttons);
+    }
+
+    public synchronized void answerCallbackQuery(String callbackId, String message) {
+        AnswerCallbackQuery answer = new AnswerCallbackQuery();
+        answer.setCallbackQueryId(callbackId);
+        answer.setText(message);
+        answer.setShowAlert(true);
+        try {
+            answerCallbackQuery(answer);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }*/
 
     /**
      * Метод для настройки сообщения и его отправки.
@@ -52,12 +81,48 @@ public class Bot extends TelegramLongPollingBot {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(chatId);
+        Keyboard.setButtons(sendMessage,chatId);
+
         if (!s.startsWith("/")) {
             if((s.contains("ривет"))||(s.contains("Хай"))||(s.contains("доров"))||(s.contains("ello"))||(s.contains("hi"))||(s.contains("Hi"))) {
                 sendMessage.setText("Привет!");
             }
             else if((s.contains("пасиб"))||(s.contains("Пасиб"))||(s.contains("лагодар"))) {
                 sendMessage.setText("Рад помочь!");
+            }
+            else if((s.equals("Музыка"))||(s.equals("музыка"))) {
+                sendQueue.add(SystemHandler.getMessageMusic(chatId));
+            }
+            else if((s.contains("Фильм"))||(s.contains("фильм"))) {
+                sendMessage.setText("Выбирай фильм, дружище:");
+                Keyboard.clear(Keyboard.replyKeyboardMarkup);
+                Keyboard.setButtonsLocal(sendMessage,chatId);
+                //setInline();
+                //sendQueue.add(SystemHandler.getMessageMusic(chatId));
+            }
+            else if ("Боевик".equals(s)) {
+                sendQueue.add(SystemHandler.getMessageActionFilm(chatId));
+                Keyboard.clear(Keyboard.replyKeyboardMarkup);
+                //sendMessage.setText("processing...");
+            }
+            else if ("Ужасы".equals(s)) {
+                sendQueue.add(SystemHandler.getMessageHorrorFilm(chatId));
+                Keyboard.clear(Keyboard.replyKeyboardMarkup);
+               // sendMessage.setText("processing...");
+            }
+            else if ("Комедия".equals(s)) {
+                sendQueue.add(SystemHandler.getMessageComedyFilm(chatId));
+                Keyboard.clear(Keyboard.replyKeyboardMarkup);
+               // sendMessage.setText("processing...");
+            }
+            else if ("Романтика".equals(s)) {
+                sendQueue.add(SystemHandler.getMessageRomanFilm(chatId));
+                Keyboard.clear(Keyboard.replyKeyboardMarkup);
+               // sendMessage.setText("processing...");
+            }
+
+            else if(s.equals("Помощь")) {
+                sendQueue.add(SystemHandler.getMessageHelp(chatId));
             }
             else if(Objects.equals(sendMessage, sticker))  {
                 ParsedCommand parsedCommand = new ParsedCommand(Command.STICKER,"");
@@ -110,5 +175,3 @@ public class Bot extends TelegramLongPollingBot {
         return botName;
     }
  }
-
-//        Keyboard.setButtons(sendMessage);

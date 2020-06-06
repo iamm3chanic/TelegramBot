@@ -1,7 +1,10 @@
 public class DatabaseA {
     static String[] helloArray = new String[20];
     static String[] motivArray = new String[10];
-    static String[] FilmArray = new String[100];
+    static String[] actionFilmArray = new String[100];
+    static String[] horrorFilmArray = new String[100];
+    static String[] comedyFilmArray = new String[100];
+    static String[] romanFilmArray = new String[100];
     static String[] musicArray = new String[100];
     static String[] picArray = new String[30];
 
@@ -30,6 +33,80 @@ public class DatabaseA {
         DatabaseA.motivArray[7] = "Измени свои привычки, изменится твоя жизнь. ";
         DatabaseA.motivArray[8] = "Бро, для тебя не существует пределов!";
         DatabaseA.motivArray[9] = "Знаний недостаточно, ты должен применять их. Желаний недостаточно, ты должен делать. ";
+    }
+    public static void setActionFilmArray(String[] actionFilmArray) {
+        DatabaseA.actionFilmArray = actionFilmArray;
+        DatabaseA.actionFilmArray[0] = "Терминатор";
+        DatabaseA.actionFilmArray[1] = "Воздушная тюрьма";
+        DatabaseA.actionFilmArray[2] = "Рембо";
+        DatabaseA.actionFilmArray[3] = "Карты,деньги, два ствола";
+        DatabaseA.actionFilmArray[4] = "Большой куш";
+        DatabaseA.actionFilmArray[5] = "Коммандо";
+        DatabaseA.actionFilmArray[6] = "Вспомнить всё";
+        DatabaseA.actionFilmArray[7] = "В осаде";
+        DatabaseA.actionFilmArray[8] = "Крепкий орешек";
+        DatabaseA.actionFilmArray[9] = "Красная жара";
+        DatabaseA.actionFilmArray[10] = "Крестный отец";
+        DatabaseA.actionFilmArray[11] = "Неудержимые";
+        DatabaseA.actionFilmArray[12] = "Переговорщик";
+        DatabaseA.actionFilmArray[13] = "Миссия: невыполнима";
+        DatabaseA.actionFilmArray[14] = "Детсадовский полицейский";
+    }
+    public static void setHorrorFilmArray(String[] horrorFilmArray) {
+        DatabaseA.horrorFilmArray = horrorFilmArray;
+        DatabaseA.horrorFilmArray[0] = "Звонок";
+        DatabaseA.horrorFilmArray[1] = "Астрал";
+        DatabaseA.horrorFilmArray[2] = "Z";
+        DatabaseA.horrorFilmArray[3] = "11-11-11";
+        DatabaseA.horrorFilmArray[4] = "Близнецы";
+        DatabaseA.horrorFilmArray[5] = "Проклятый дом";
+        DatabaseA.horrorFilmArray[6] = "Эффект Лазаря";
+        DatabaseA.horrorFilmArray[7] = "Обратный отсчет";
+        DatabaseA.horrorFilmArray[8] = "Пила (все части)";
+        DatabaseA.horrorFilmArray[9] = "Поворот не туда (все части)";
+        DatabaseA.horrorFilmArray[10] = "Метка дьявола";
+        DatabaseA.horrorFilmArray[11] = "Тетрадь смерти";
+        DatabaseA.horrorFilmArray[12] = "Убрать из друзей";
+        DatabaseA.horrorFilmArray[13] = "Счастливого дня смерти";
+        DatabaseA.horrorFilmArray[14] = "Врата тьмы";
+    }
+
+    public static void setComedyFilmArray(String[] comedyFilmArray) {
+        DatabaseA.comedyFilmArray = comedyFilmArray;
+        DatabaseA.comedyFilmArray[0] = "1+1";
+        DatabaseA.comedyFilmArray[1] = "Назад в будущее";
+        DatabaseA.comedyFilmArray[2] = "Крысиные бега";
+        DatabaseA.comedyFilmArray[3] = "Криминальное чтиво";
+        DatabaseA.comedyFilmArray[4] = "Большой куш";
+        DatabaseA.comedyFilmArray[5] = "Цельнометаллическая оболочка";
+        DatabaseA.comedyFilmArray[6] = "Укрощение строптивого";
+        DatabaseA.comedyFilmArray[7] = "Завтрак у Тиффани";
+        DatabaseA.comedyFilmArray[8] = "Один дома";
+        DatabaseA.comedyFilmArray[9] = "Кин-Дза-Дза!";
+        DatabaseA.comedyFilmArray[10] = "Большой Лебовски";
+        DatabaseA.comedyFilmArray[11] = "О чем говорят мужчины";
+        DatabaseA.comedyFilmArray[12] = "Семейка Аддамс";
+        DatabaseA.comedyFilmArray[13] = "Особенности национальной рыбалки";
+        DatabaseA.comedyFilmArray[14] = "Астерикс и Обеликс против Цезаря";
+    }
+
+    public static void setRomanFilmArray(String[] romanFilmArray) {
+        DatabaseA.romanFilmArray = romanFilmArray;
+        DatabaseA.romanFilmArray[0] = "Виноваты звёзды";
+        DatabaseA.romanFilmArray[1] = "3 метра над уровнем неба";
+        DatabaseA.romanFilmArray[2] = "Титаник";
+        DatabaseA.romanFilmArray[3] = "Космос между нами";
+        DatabaseA.romanFilmArray[4] = "Служебный роман";
+        DatabaseA.romanFilmArray[5] = "Унесенные ветром";
+        DatabaseA.romanFilmArray[6] = "Она";
+        DatabaseA.romanFilmArray[7] = "Джейн Эйр";
+        DatabaseA.romanFilmArray[8] = "Ла-Ла-Ленд";
+        DatabaseA.romanFilmArray[9] = "Хорошо быть тихоней";
+        DatabaseA.romanFilmArray[10] = "В метре друг от друга";
+        DatabaseA.romanFilmArray[11] = "Месть от кутюр";
+        DatabaseA.romanFilmArray[12] = "Доживем до понедельника";
+        DatabaseA.romanFilmArray[13] = "Евдокия";
+        DatabaseA.romanFilmArray[14] = "Жизнь Адель";
     }
     public static void setMusicArray(String[] musicArray) {
         DatabaseA.musicArray = musicArray;
