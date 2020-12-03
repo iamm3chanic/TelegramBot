@@ -49,7 +49,7 @@ public class Main {
     private static void sendStartReport(Bot bot) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(BOT_ADMIN);
-        sendMessage.setText("Деплой произошел успешно! Version normal5.");
+        sendMessage.setText("Деплой произошел успешно! Version normal6.");
         bot.sendQueue.add(sendMessage);
     }
 }
