@@ -6,7 +6,7 @@
 //import DefaultHandler;
 //import NotifyHandler;
 //import SystemHandler;
-
+import constants.CONSTANTS;
 import org.apache.log4j.Logger;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
@@ -16,7 +16,7 @@ import org.telegram.telegrambots.api.objects.stickers.Sticker;
 
 public class MessageReceiver implements Runnable {
     private static final Logger log = Logger.getLogger(MessageReceiver.class);
-    private final int WAIT_FOR_NEW_MESSAGE_DELAY = 1000;
+    //private final int WAIT_FOR_NEW_MESSAGE_DELAY = 1000;
     private Bot bot;
     private Parser parser;
     private String chatID;
@@ -35,7 +35,7 @@ public class MessageReceiver implements Runnable {
                 analyze(object);
             }
             try {
-                Thread.sleep(WAIT_FOR_NEW_MESSAGE_DELAY);
+                Thread.sleep(CONSTANTS.WAIT_FOR_NEW_MESSAGE_DELAY);
             } catch (InterruptedException e) {
                 log.error("Catch interrupt. Exit", e);
                 return;
