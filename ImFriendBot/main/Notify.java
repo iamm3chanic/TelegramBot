@@ -1,10 +1,10 @@
+import constants.CONSTANTS;
 import org.apache.log4j.Logger;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.methods.send.SendSticker;
 
 public class Notify implements Runnable {
     private static final Logger log = Logger.getLogger(Notify.class);
-    private static final int MILLISEC_IN_SEC = 1000;
 
     Bot bot;
     long delayInMillisec;
@@ -32,7 +32,7 @@ public class Notify implements Runnable {
     }
 
     private SendMessage getFirstMessage() {
-        return new SendMessage(chatID, "Я отправлю уведомление через " + delayInMillisec / MILLISEC_IN_SEC + " сек");
+        return new SendMessage(chatID, "Я отправлю уведомление через " + delayInMillisec / CONSTANTS.MILLISEC_IN_SEC + " сек");
     }
 
     private SendSticker getSecondSticker() {
