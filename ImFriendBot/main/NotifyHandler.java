@@ -1,13 +1,14 @@
 //import Notify;
 //import Bot;
 //import ParsedCommand;
+import constants.CONSTANTS;
 import org.apache.log4j.Logger;
 import org.telegram.telegrambots.api.objects.Update;
 
 public class NotifyHandler extends AbstractHandler {
     //private static final Logger log = Logger.getLogger(NotifyHandler.class);
     private static final Logger log = Logger.getLogger(NotifyHandler.class);
-    private final int MILLISEC_IN_SEC = 1000;
+    //private final int MILLISEC_IN_SEC = 1000;
     private String WRONG_INPUT_MESSAGE =  "Неверный ввод. Время задается целым числом, большим 0";
     public NotifyHandler(Bot bot) {
         super(bot);
@@ -28,7 +29,7 @@ public class NotifyHandler extends AbstractHandler {
         }
         if (timeInSec > 0) {
            // int MILLISEC_IN_SEC = 1000;
-            Thread thread = new Thread(new Notify(bot, chatId, timeInSec * MILLISEC_IN_SEC));
+            Thread thread = new Thread(new Notify(bot, chatId, timeInSec * CONSTANTS.MILLISEC_IN_SEC));
             thread.start();
         } else return WRONG_INPUT_MESSAGE;
         return "";
