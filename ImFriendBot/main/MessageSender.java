@@ -1,13 +1,15 @@
 
 //import Bot;
+import constants.CONSTANTS;
 import org.apache.log4j.Logger;
 import org.telegram.telegrambots.api.methods.BotApiMethod;
 import org.telegram.telegrambots.api.methods.send.SendSticker;
 import org.telegram.telegrambots.api.objects.Message;
 
+import static constants.CONSTANTS.SENDER_SLEEP_TIME;
+
 public class MessageSender implements Runnable {
     private static final Logger log = Logger.getLogger(MessageSender.class);
-    private final int SENDER_SLEEP_TIME = 1000;
     private Bot bot;
 
     public MessageSender(Bot bot) {
@@ -24,7 +26,7 @@ public class MessageSender implements Runnable {
                     send(object);
                 }
                 try {
-                    Thread.sleep(SENDER_SLEEP_TIME);
+                    Thread.sleep(CONSTANTS.SENDER_SLEEP_TIME);
                 } catch (InterruptedException e) {
                     log.error("Take interrupt while operate msg list", e);
                 }
