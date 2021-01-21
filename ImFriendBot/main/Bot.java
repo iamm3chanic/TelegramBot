@@ -1,5 +1,5 @@
 //import javafx.scene.input.KeyEvent;
-
+import constants.CONSTANTS;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,13 +27,20 @@ public class Bot extends TelegramLongPollingBot {
     @Setter
     private String botToken;
 
-    public final Queue<Object> sendQueue = new ConcurrentLinkedQueue<>();
+    public static final Queue<Object> sendQueue = new ConcurrentLinkedQueue<>();
     public final Queue<Object> receiveQueue = new ConcurrentLinkedQueue<>();
     private Sticker sticker;
 
     public Bot(String botName, String botToken) {
         this.botName = botName;
         this.botToken = botToken;
+    }
+
+    public static void sendStartReport() {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(CONSTANTS.BOT_ADMIN);
+        sendMessage.setText("Деплой произошел успешно! Version normal7.");
+        sendQueue.add(sendMessage);
     }
 
     @Override
