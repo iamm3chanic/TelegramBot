@@ -35,15 +35,7 @@ public class Main {
         sender.setPriority(CONSTANTS.PRIORITY_FOR_SENDER);
         sender.start();
 
-        sendStartReport(friend_bot);
+        friend_bot.sendStartReport();
 
-    }
-
-
-    private static void sendStartReport(Bot bot) {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(CONSTANTS.BOT_ADMIN);
-        sendMessage.setText("Деплой произошел успешно! Version normal7.");
-        bot.sendQueue.add(sendMessage);
     }
 }
