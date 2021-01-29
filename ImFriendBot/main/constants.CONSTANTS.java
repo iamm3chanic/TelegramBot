@@ -1,3 +1,5 @@
+//TODO: rename to CONSTANTS
+
 package constants;
 public class CONSTANTS {
     public static int SENDER_SLEEP_TIME;
